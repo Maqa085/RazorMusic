@@ -1,0 +1,11 @@
+[12-Apr-26 00:28:55 - INFO] - anony: Cache directories updated.
+[12-Apr-26 00:28:56 - INFO] - anony: Loaded languages: az
+[12-Apr-26 00:28:58 - INFO] - anony: Database connection successful. (1.67s)
+[12-Apr-26 00:28:59 - INFO] - anony: Database cache loaded.
+[12-Apr-26 00:28:59 - INFO] - anony: Bot started as @RazorMusicBot
+[12-Apr-26 00:29:01 - INFO] - anony: Assistant 1 started as @RazorAssistant
+[12-Apr-26 00:29:01 - INFO] - anony: PyTgCalls client(s) started.
+[12-Apr-26 00:29:01 - INFO] - anony: Loaded 23 modules.
+[12-Apr-26 00:29:01 - INFO] - anony: Saving cookies from urls...
+[12-Apr-26 00:29:01 - INFO] - anony: Cookies saved in anony/cookies.
+[12-Apr-26 00:29:02 - INFO] - anony: Loaded 2 sudo users.
