@@ -13,6 +13,7 @@ from anony import db, logger
 
 lang_codes = {
     "az": "🇦🇿 Azərbaycanca"
+    "tr": "🇹🇷 Türkçe"
 }
 
 
