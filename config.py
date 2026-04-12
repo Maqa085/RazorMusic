@@ -12,7 +12,7 @@ class Config:
         self.DURATION_LIMIT = int(getenv("DURATION_LIMIT", 120)) * 60
         self.QUEUE_LIMIT = int(getenv("QUEUE_LIMIT", 50))
         self.PLAYLIST_LIMIT = int(getenv("PLAYLIST_LIMIT", 30))
-        self.SESSION1 = getenv("SESSION", "
+        self.SESSION1 = getenv("SESSION", "AQFHy9oAmzL5T6OTifn6bPZ00b-n-2PV1sVV4o8UGqmhmwiyHV2O-E0i3eEjUWal08wN73fnLH6m0QXZdpL1vqS8R9T-z9m7SXmFfpxnadb252QU2lvHS1CG8jy7119SUWLanp4Sqt-FP_qnu9RIqbI5arrPIVetYNW2Aji3xo7QgxhcPE-XNBV63mkyqlPgetRlF0LZA3VFM2qmbm_2_znk6SaUT56jgMWLVDZ0cmcAmLRZgBWGL9YWjmtZTFMq0cDV5m66zYM8Ki81X6asW99REyPAruFWTdUWYgk_S0PRlgsFjiZ-CSWwsNbBQ0SKMQ-_0gL6O-3iF1XgGX-L3MNOkq2wYgAAAAIEBhvIAA"
         self.SESSION2 = getenv("SESSION2", None)
         self.SESSION3 = getenv("SESSION3", None)
         self.SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/AzerbaijanBots")
