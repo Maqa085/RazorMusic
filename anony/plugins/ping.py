@@ -1,16 +1,11 @@
 # Copyright (c) 2025 AnonymousX1025
 # Licensed under the MIT License.
 # This file is part of AnonXMusic
-
-
 import time
 import psutil
-
 from pyrogram import filters, types
 from anony import app, anon, boot, config, lang
 from anony.helpers import buttons
-
-
 @app.on_message(filters.command(["alive", "ping"]) & ~app.bl_users)
 @lang.language()
 async def _ping(_, m: types.Message):
@@ -31,5 +26,11 @@ async def _ping(_, m: types.Message):
                 await anon.ping(),
             )
         ),
-        reply_markup=buttons.ping_markup(m.lang["support"]),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("🐳 Dəstək", url="https://t.me/ThisMaga")
+                ]
+            ]
+        ),
     )
