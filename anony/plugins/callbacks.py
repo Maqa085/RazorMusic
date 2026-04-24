@@ -1,6 +1,7 @@
 # Copyright (c) 2025 AnonymousX1025
 # Licensed under the MIT License.
 # This file is part of AnonXMusic
+import asyncio
 import re
 from pyrogram import errors, filters, types
 from anony import anon, app, db, lang, queue, tg, yt
@@ -15,12 +16,17 @@ async def close_menu_handler(_, query):
     try:
         # Düyməyə basan adamın adını götürürük
         user_name = query.from_user.mention
-        # Mesajı silirik
+        # Əsas menyu mesajını silirik
         await query.message.delete()
-        # Yeni bildiriş mesajını göndəririk
-        await query.message.reply_text(f"Menyu {user_name} Tərəfindən Bağlanıldı")
+        # Bildiriş mesajını göndəririk və bir dəyişənə bərabər edirik
+        notification = await query.message.reply_text(f"📋 Menyu {user_name}
+Tərəfindən Bağlandı.")
+        # 4 saniyə gözləyirik
+        await asyncio.sleep(4)
+        # Bildiriş mesajını silirik
+        await notification.delete()
     except Exception as e:
-        # Əgər mesaj artıq silinibsə və ya adminlik yoxdursa xəta verməsin
+        # Mesaj artıq silinibsə və ya icazə yoxdursa xəta konsola düşür
         print(f"Bağla düyməsi xətası: {e}")
 @app.on_callback_query(filters.regex(r"song_download"))
 async def song_download_callback(_, query):
@@ -28,8 +34,7 @@ async def song_download_callback(_, query):
     mode = data[1] # mp3 və ya video
     vidid = data[2]
     url = f"https://www.youtube.com/watch?v={vidid}"
-    await query.edit_message_caption("📥 Yüklənir... Xahiş edirik gözləyin.")
-    # Yükləmə qovluğu yoxdursa yaradırıq
+    await query.edit_message_caption("📥 Yüklənir... Xahiş edirik gözləyin.")    # Yükləmə qovluğu yoxdursa yaradırıq
     if not os.path.exists("downloads"):
         os.makedirs("downloads")
     # Yükləmə ayarları
@@ -61,17 +66,17 @@ async def song_download_callback(_, query):
                 audio=file_path,
                 title=info.get('title', 'Musiqi'),
                 performer=f"@{app.username}", # Sənətçi yerinə Bot Username
-                caption=f"✅  @{app.username} vasitəsilə yükləndi"
+                caption=f"✅   @{app.username} vasitəsilə yükləndi"
             )
         else:
             await query.message.reply_video(
                 video=file_path,
-                caption=f"🎬 <b>{info.get('title', 'Video')}</b>\n\n✅  @{app.username} vasitəsilə yükləndi"
+                caption=f"🎬 <b>{info.get('title', 'Video')}</b>\n\n✅   @{app.username} vasitəsilə yükləndi"
             )
         # Orijinal menyu mesajını silirik
         await query.message.delete()
     except Exception as e:
-        await query.message.reply_text(f"❌  Yükləmə xətası: {e}")
+        await query.message.reply_text(f"❌   Yükləmə xətası: {e}")
     # Faylı serverdən silirik ki, yaddaş dolmasın
     if os.path.exists(file_path):
         os.remove(file_path)
@@ -213,4 +218,4 @@ async def _settings_cb(_, query: types.CallbackQuery):
             _language,
             chat_id,
         )
-    )
+        )
